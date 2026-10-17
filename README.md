@@ -2,271 +2,250 @@
 
 > **Harmonizing Global Health with the Elements of Nature**
 
-Aether Health is a holistic, AI-powered web platform that reimagines healthcare delivery through the lens of the five elements of nature: Fire, Water, Air, Earth, and Space.
+Aether Health is an AI-powered healthcare platform designed to make health information more accessible, understandable, and less intimidating. Built around five elements—Fire, Water, Air, Earth, and Space—it brings together symptom support, water-safety reporting, prescription understanding, counterfeit-medicine screening, and inclusive health guidance.
 
-Unlike traditional medical apps that feel clinical and anxiety-inducing, Aether Health provides a calm, culturally inclusive experience. It solves critical healthcare challenges—from health anxiety to counterfeit medicines—by grounding every AI decision in verified medical data and utilizing Google Gemini API's advanced multimodal capabilities.
+The platform's primary architecture uses AWS services, including Amazon Bedrock, Nova models, Amazon SageMaker, AWS Amplify, Amazon Cognito, and Amazon DynamoDB. Google Gemini and Firebase are also supported as alternative integration options, depending on the deployment configuration.
 
-![Status](https://img.shields.io/badge/status-active-success)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![React](https://img.shields.io/badge/React-18.2.0-61dafb)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
+**Developer:** [Debadrit Nag](https://github.com/DebadritNag)  
+**Development period:** January 2026 – March 2026  
+**Repository:** [Aether-Health-Ai](https://github.com/DebadritNag/Aether-Health-Ai)
 
----
-
-## ✨ Features: The Five-Element Framework
-
-### 🔥 Fire: VitalScan (Diagnostics & Vitality)
-
-**The Problem:** People panic after Googling symptoms, often misinterpreting mild issues as fatal diseases.
-
-**The Solution:** An empathetic symptom checker powered by Gemini that:
-- Detects user anxiety via sentiment analysis
-- Adjusts tone to be calming and reassuring
-- Uses Retrieval-Augmented Generation (RAG) against WHO Clinical Guidelines
-- Provides probability-based assessments (e.g., "85% Acid Reflux, 5% Cardiac")
-
-### 💧 Water: HydroGuard (Purity & Flow)
-
-**The Problem:** Citizens lack real-time, accessible data on local water safety.
-
-**The Solution:** An interactive water safety platform featuring:
-- Visual map of safe and unsafe water zones
-- Citizen Science tool for reporting contamination
-- Auto-GPS capture for contamination reports
-- Automated ticket generation for local officials
-
-### 🌬️ Air: ClearScript (Communication & Breath)
-
-**The Problem:** Illegible doctor handwriting leads to dangerous medication errors.
-
-**The Solution:** AI-powered prescription reader that:
-- Scans and deciphers messy handwritten prescriptions using Gemini Vision
-- Extracts raw text and corrects misspelled drug names
-- Automatically extracts dosage schedules
-- Sets patient medication reminders
-
-### 🌍 Earth: TrueMeds (Stability & Substance)
-
-**The Problem:** Up to 20% of medicines in developing nations are counterfeit.
-
-**The Solution:** Visual counterfeit defense system that:
-- Analyzes medicine packaging (fonts, logo alignment)
-- Verifies physical pill characteristics (shape, color)
-- Cross-references against a "Golden Dataset" of genuine drugs
-- Provides instant authenticity verification
-
-### 🌌 Space: LifeLoop (Universal Connection)
-
-**The Problem:** Healthcare is fragmented and excludes non-English speakers.
-
-**The Solution:** Holistic intelligence layer providing:
-- Instant translation to local dialects
-- Aggregated data from all elements
-- Holistic lifestyle recommendations
-- Culturally sensitive health guidance
+![Project](https://img.shields.io/badge/Project-Aether%20Health-2E7D5B) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![Cloud](https://img.shields.io/badge/Cloud-AWS-FF9900)
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ The Five-Element Framework
+
+### 🔥 Fire — VitalScan
+**Anxiety-aware symptom support**
+- Provides conversational symptom assessments in a calm, empathetic tone.
+- Uses context and sentiment-aware interaction to help reduce unnecessary health anxiety.
+- Integrates Retrieval-Augmented Generation (RAG) grounded in relevant WHO guidelines and clinical reference material.
+- Uses Amazon Bedrock with Nova models for the primary AWS-based AI workflow, with Gemini as an alternative integration where configured.
+
+### 💧 Water — HydroGuard
+**Community water-safety reporting**
+- Visualizes water-safety information where data is available.
+- Supports citizen reports of suspected contamination.
+- Can associate location information with reports when permission is granted.
+- Organizes reports for review and potential escalation to relevant authorities.
+
+### 🌬️ Air — ClearScript
+**Handwritten prescription understanding**
+- Applies multimodal AI and OCR to images of handwritten prescriptions.
+- Extracts readable text and helps identify potentially misspelled medicine names.
+- Structures dosage and schedule information when legible.
+- Supports medication-reminder workflows where configured.
+
+Always confirm extracted medicine names and dosages with a pharmacist or prescribing clinician before use.
+
+### 🌍 Earth — TrueMeds
+**Computer-vision-assisted medicine screening**
+- Analyzes medicine packaging and visual characteristics for potential inconsistencies.
+- Uses reference data to support image-based screening.
+- Uses a computer-vision model trained and deployed through Amazon SageMaker.
+- Integrates with a Supervisor Agent using Amazon Bedrock AgentCore to coordinate the AI workflow.
+
+Image screening cannot conclusively establish that a medicine is genuine. Suspected counterfeit products require independent verification.
+
+### 🌌 Space — LifeLoop
+**Connected and inclusive health guidance**
+- Supports multilingual communication and translation where configured.
+- Connects information from the platform's different modules.
+- Offers general lifestyle and wellness guidance.
+- Aims to make health information more accessible across language and cultural contexts.
+
+---
+
+## 🧠 Technology Stack
+
+### AWS and AI
+| Technology | Purpose |
+|---|---|
+| AWS Amplify | Frontend hosting and application delivery |
+| Amazon Cognito | Authentication and identity management |
+| Amazon DynamoDB | NoSQL application data storage |
+| Amazon Bedrock | Foundation-model access and generative AI workflows |
+| Amazon Nova | Language and multimodal AI tasks, depending on the configured model |
+| RAG | Grounds relevant responses in a curated reference corpus, including WHO guidance |
+| Amazon SageMaker | Training and deployment of the TrueMeds computer-vision model |
+| Amazon Bedrock AgentCore | Supervisor-agent orchestration |
+
+### Alternative integrations
+- **Google Gemini:** Alternative conversational and multimodal AI provider.
+- **Firebase:** Alternative authentication, database, and application-backend services where configured.
+
+These are alternative or composable integration paths; the project does not require every provider to run simultaneously.
 
 ### Frontend
-- **Framework:** React 18.2+ with Vite
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS (Glassmorphism UI)
-- **Animations:** Framer Motion
-- **Components:** Custom component architecture
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
 
-### Backend & AI
-- **Runtime:** Node.js
-- **AI Engine:** Google Gemini API (Gemini 1.5/2.5 Pro & Flash)
-  - Text Processing: Empathetic chat, symptom analysis, translation
-  - Multimodal Vision: Prescription OCR, visual counterfeit detection
+### Development tools
+- Git and GitHub
+- npm
+- Node.js
 
-### Data & Storage
-- **Database:** MongoDB / Firebase
-- **Storage:** Cloud storage for user profiles and images
-- **Maps:** Google Maps API / Mapbox
+---
 
-### Development Tools
-- **Build Tool:** Vite
-- **Package Manager:** npm/yarn
-- **Version Control:** Git
+## 🏗️ Architecture Overview
+
+```mermaid
+flowchart TD
+    U[User] --> FE[React + TypeScript Frontend]
+    FE --> AUTH[Amazon Cognito]
+    FE --> API[Application Services]
+    API --> DB[Amazon DynamoDB]
+    API --> AI[Amazon Bedrock + Nova]
+    AI --> RAG[RAG + WHO Reference Material]
+    API --> OCR[Prescription OCR]
+    API --> SUP[Bedrock AgentCore Supervisor]
+    SUP --> CV[TrueMeds Vision Model]
+    CV --> SM[Amazon SageMaker]
+    FE -. Alternative AI .-> GEM[Google Gemini]
+    FE -. Alternative Backend .-> FB[Firebase]
+```
+
+*Conceptual architecture: actual connections depend on the deployed environment and application configuration.*
+
+---
+
+## 🛡️ Responsible AI and Safety
+
+- **Evidence-aware responses:** Ground relevant health-information workflows in trusted reference material.
+- **Explainability:** Communicate the sources and limitations behind AI-generated information wherever possible.
+- **Decision support, not diagnosis:** Encourage professional medical care when appropriate.
+- **Human verification:** Require independent confirmation of prescription details and suspicious medicines.
+- **Privacy-conscious design:** Apply appropriate authentication, access controls, and secure data handling.
+- **Transparent uncertainty:** AI responses, OCR, and computer-vision classifications can be wrong.
+
+Aether Health is not a replacement for a qualified healthcare professional. No AI system can guarantee perfect medical accuracy or zero hallucinations.
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- Node.js version compatible with the project's package configuration
+- npm or the package manager specified by the project
+- Git
+- Credentials and resources for the selected AI and cloud providers
 
-Before you begin, ensure you have:
-- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
-- **npm** or **yarn** package manager
-- **Google AI Studio Account** - Get your [Gemini API Key](https://aistudio.google.com/)
-- **MongoDB URI** or **Firebase Configuration**
+### 1. Clone the repository
 
-### Installation
+```bash
+git clone https://github.com/DebadritNag/Aether-Health-Ai.git
+cd Aether-Health-Ai
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/aether-health.git
-   cd aether-health
-   ```
+### 2. Install dependencies
 
-2. **Install dependencies**
-   ```bash
-   # Install all project dependencies
-   npm install
-   ```
+Navigate to the directory containing the applicable `package.json` file and run:
 
-3. **Environment Setup**
-   
-   Create a `.env` file in the root directory:
-   ```env
-   # Google Gemini API Configuration
-   GEMINI_API_KEY=your_google_gemini_api_key_here
-   
-   # Database Configuration
-   DATABASE_URL=your_mongodb_connection_string
-   
-   # Server Configuration
-   PORT=6002
-   
-   # Optional: Firebase Configuration
-   FIREBASE_API_KEY=your_firebase_api_key
-   ```
+```bash
+npm install
+```
 
-4. **Start Development Server**
-   ```bash
-   # Start the application in development mode
-   npm run dev
-   ```
+### 3. Configure your environment
 
-5. **Build for Production**
-   ```bash
-   # Create a production build
-   npm run build
-   
-   # Preview production build
-   npm run preview
-   ```
+Create the environment file expected by the application. Configure only the variables that your implementation actually reads.
+
+For AWS, configure the appropriate region, IAM permissions, and required service resources. Prefer IAM roles and temporary credentials over hard-coded access keys.
+
+For a Gemini-based deployment, configure the Gemini API key. For a Firebase-based deployment, configure the Firebase project and appropriate security rules.
+
+Example configuration categories:
+
+```env
+AWS_REGION=your_aws_region
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+These are examples, not a guarantee that the application uses these exact variable names. Never commit credentials, API keys, service-account files, or patient data to Git.
+
+### 4. Start the development server
+
+From the directory containing the relevant scripts:
+
+```bash
+npm run dev
+```
+
+### 5. Build for production
+
+```bash
+npm run build
+npm run preview
+```
+
+Use the scripts defined in the relevant `package.json`. AWS services such as Bedrock, SageMaker, Cognito, and DynamoDB require appropriate configuration and permissions beyond installing frontend dependencies.
 
 ---
 
 ## 📁 Project Structure
 
-```
-Health-application/
-├── components/          # React components
-│   ├── DashboardGrid.tsx
-│   ├── ElementSelector.tsx
-│   ├── LandingPage.tsx
-│   ├── OutputDisplay.tsx
-│   ├── SettingsPanel.tsx
-│   ├── TrustPanel.tsx
-│   └── VoiceInput.tsx
-├── services/            # API and external services
-│   └── geminiService.ts
-├── App.tsx             # Main application component
-├── constants.tsx       # Application constants
-├── translations.ts     # Internationalization strings
-├── types.ts            # TypeScript type definitions
-└── vite.config.ts      # Vite configuration
+The repository contains the application in `Health-application-main/`. The following is a high-level representation of the frontend structure; verify the current repository for exact paths and additional services.
+
+```text
+Aether-Health-Ai/
+├── Health-application-main/
+│   ├── components/       # UI components
+│   ├── services/         # AI and external-service integrations
+│   ├── App.tsx           # Application entry component
+│   ├── constants.tsx     # Application constants
+│   ├── translations.ts   # Localization strings
+│   ├── types.ts          # TypeScript definitions
+│   └── vite.config.ts    # Vite configuration
+└── README.md
 ```
 
 ---
 
-## 🎨 Core Capabilities
+## 🗺️ Project Summary
 
-### AI-Powered Features
-- **Symptom Analysis:** Context-aware health assessments with anxiety detection
-- **Prescription OCR:** Handwritten text recognition and drug name correction
-- **Image Verification:** Medicine authentication through visual analysis
-- **Natural Language Processing:** Multi-language support and translation
-- **Sentiment Analysis:** Adaptive communication based on user emotional state
-
-### User Experience
-- **Calm Interface:** Non-clinical, soothing design language
-- **Accessibility:** Support for multiple languages and dialects
-- **Transparency:** Clear explanation of AI reasoning and data sources
-- **Privacy-First:** Secure handling of sensitive health information
-
----
-
-## 🛡️ Responsible AI & Trust
-
-Aether Health is built with Trust & Safety as core principles:
-
-### ✅ No Hallucinations
-Diagnostic advice is grounded in verified WHO datasets and clinical guidelines.
-
-### ✅ Explainability
-"Element Tick-Mark Traceability" shows users exactly which data sources contributed to health recommendations.
-
-### ✅ Decision Support, Not Diagnosis
-The platform is designed to support and calm users, always recommending professional medical consultation for serious conditions.
-
-### ✅ Data Privacy
-All health data is encrypted and stored securely, with user consent and control at the forefront.
-
----
-
-## 🔐 Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GEMINI_API_KEY` | Your Google Gemini API key | ✅ Yes |
-| `DATABASE_URL` | MongoDB/Firebase connection string | ✅ Yes |
-| `PORT` | Server port number (default: 6002) | ❌ No |
-| `FIREBASE_API_KEY` | Firebase API key (if using Firebase) | ❌ No |
-
----
+| Element | Module | Focus |
+|---|---|---|
+| 🔥 Fire | VitalScan | Symptom support and WHO-grounded RAG |
+| 💧 Water | HydroGuard | Water-safety information and reporting |
+| 🌬️ Air | ClearScript | Handwritten prescription OCR |
+| 🌍 Earth | TrueMeds | SageMaker computer-vision screening |
+| 🌌 Space | LifeLoop | Multilingual and connected health guidance |
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature/your-feature`.
+3. Make and test your changes.
+4. Commit your work: `git commit -m "Describe your change"`.
+5. Push your branch and open a Pull Request.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
+Do not include secrets or identifiable patient information in commits, issues, or test fixtures.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## 👥 Authors
-
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
-
----
+Check the repository's `LICENSE` file to confirm the applicable license and terms before reusing or redistributing this project.
 
 ## 🙏 Acknowledgments
 
-- Google Gemini API for powerful AI capabilities
-- World Health Organization (WHO) for clinical guidelines
-- The open-source community for amazing tools and libraries
-- Healthcare professionals who provided expert guidance
+- Amazon Web Services for cloud and AI infrastructure.
+- Google Gemini for alternative multimodal AI integration.
+- World Health Organization for relevant public health guidance and reference material.
+- Open-source contributors and the healthcare community.
 
----
+## 📬 Support
 
-## 📞 Support
-
-For support, questions, or suggestions:
-- Open an issue on GitHub
-- Email: support@aetherhealth.com
-- Documentation: [Link to docs]
+- [Report a bug or request a feature](https://github.com/DebadritNag/Aether-Health-Ai/issues)
+- [Explore the repository](https://github.com/DebadritNag/Aether-Health-Ai)
 
 ---
 
 <div align="center">
 
-**Built by Debadrit**
+**Built by [Debadrit Nag](https://github.com/DebadritNag)**
 
-[Report Bug](https://github.com/yourusername/aether-health/issues) · [Request Feature](https://github.com/yourusername/aether-health/issues)
+*Making healthcare information clearer, calmer, and more accessible.*
 
 </div>
